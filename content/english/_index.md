@@ -164,6 +164,7 @@ blog:
     label: Read All Blogs
     icon:
 
+
 call_to_action:
   enable: true
   title: ""

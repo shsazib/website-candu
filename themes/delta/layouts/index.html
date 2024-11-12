@@ -268,111 +268,8 @@
   {{ end }}
 
 
-  <!-- <section class="wave-block overflow-hidden rounded-lg"> -->
-  <section style="padding-top: 250px;">
-    <div class="container">
-      <div class="row align-items-center justify-content-between">
-        {{ with site.GetPage .Params.capten_feature.section }}
-          {{ with .Params }}
-          <div class="col-lg-6 pb-5 pb-lg-0 lg:sticky lg:top-[350px]">
-              <div class="pe-0 pe-lg-5">
-                <p
-                  class="subtitle"
-                  {{ with .subtitle_color }}style="color:{{ . }}"{{ end }}>
-                  {{ .subtitle | markdownify }}
-                </p>
-                <h2
-                  class="title text-xl mb-3"
-                  {{ with .title_color }}style="color:{{ . }}"{{ end }}>
-                  {{ .title | markdownify }}
-                </h2>
-                <div
-                  class="mb-5"
-                  {{ with .description_color }}style="color:{{ . }}"{{ end }}>
-                  {{ .description | markdownify }}
-                </div>
+  {{ partial "components/faq.html" . }}
 
-                {{ with .button }}
-                  {{ if .enable }}
-                    <a
-                      href="{{ .link | relLangURL }}"
-                      class="btn btn-primary m-1">
-                      {{ .label }}
-                      {{ with .icon }}
-                        <i class="arrow-right {{ . }}"></i>
-                      {{ end }}
-                    </a>
-                  {{ end }}
-                {{ end }}
-
-                {{ with .video_button }}
-                  {{ if .enable }}
-                    <button
-                      class="btn btn-outline btn-play m-1 shadow-none"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-src="{{ .video_url | safeURL }}"
-                      data-bs-target="#videoModal"
-                      aria-label="watch video">
-                      <i class="fas fa-play"></i>
-                      {{ .label }}
-                    </button>
-                  {{ end }}
-                {{ end }}
-              </div>
-            </div>
-            <!-- <div class="col-lg-5 mt-5 mt-lg-0"> -->
-            <!-- <div class="accordion" id="faq">
-                {{ range $i, $e := .faq_list }}
-              <div class="accordion-item border-0">
-                <h4
-                  class="accordion-header mb-0"
-                  id="heading-{{ sha1 .title | urlize }}_">
-                  <button
-                    class="accordion-button pe-0 shadow-none h6 font-secondary mb-0 {{ if ne $i 0 }}
-                      collapsed
-                    {{ end }}"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#id-{{ sha1 .title | urlize }}_"
-                    aria-expanded="{{ if eq $i 0 }}
-                      true
-                    {{ else }}
-                      false
-                    {{ end }}"
-                    aria-controls="id-{{ sha1 .title | urlize }}_">
-                    {{ .title | markdownify }}
-                  </button>
-                </h4>
-                <div
-                  id="id-{{ sha1 .title | urlize }}_"
-                  class="accordion-collapse collapse {{ if eq $i 0 }}
-                    show
-                  {{ end }}"
-                  aria-labelledby="heading-{{ sha1 .title | urlize }}_"
-                  data-bs-parent="#faq">
-                  <div class="accordion-body pt-0 content">
-                    {{ .content | markdownify }}
-                  </div>
-                </div>
-              </div>
-            {{ end }}
-              </div> -->
-            <!-- </div> -->
-          {{ end }}
-        {{ end }}
-
-        {{ with site.GetPage .Params.capten_feature.section }}
-        {{ with .Params }}
-        <div class="col-lg-5 mt-5 mt-lg-0">
-          <!-- Include FAQ Component -->
-          {{ partial "components/faq.html" . }}
-        </div>
-        {{ end }}
-        {{ end }}
-      </div>
-    </div>
-  </section>
 
   {{ with site.GetPage .Params.capten_advantages.section }}
     {{ with .Params }}
@@ -904,6 +801,8 @@
       </section>
     {{ end }}
   {{ end }}
+
+
 
   {{ if .Params.call_to_action.enable }}
     {{ partial "call-to-action-2.html" . }}

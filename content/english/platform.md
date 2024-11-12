@@ -2,7 +2,7 @@
 title: "Capten"
 description: "Universal and Agnostic Orchestrator!"
 
-url: capten
+url: platform
 draft: false
 layout: content-with-images
 

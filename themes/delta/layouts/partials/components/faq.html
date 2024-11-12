@@ -1,51 +1,184 @@
-<!-- {{ range .faq_list }}
-  <div class="faq-container content">
-    <div class="accordion">
-      <div class="accordion-item" style="border: none; ">
-        <button class="faq-accordion-button">
-          <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#A4B0CA'><path fill-rule='evenodd' d='M1.646 4.646a.5.5.0 01.708.0L8 10.293l5.646-5.647a.5.5.0 01.708.708l-6 6a.5.5.0 01-.708.0l-6-6a.5.5.0 010-.708z'/></svg>
-          <h5 class="accordion-header">
-            {{ .title | markdownify }}
-          </h5>
-        </button>
-        {{ .content | markdownify }}
-      </div>
-    </div>
-  </div>
-{{ end }} -->
 
-
+{{ with site.GetPage .Params.capten_feature.section }}
+{{ with .Params }}
 
 <div class="trigger-section">
   <section class="faq-section">
-    <div class="faq-wrapper">
-      <div class="right-content">
-        <div class="faq-container">
-          <div class="faq-item" data-index="0">
-            <div class="faq-question">What is Lorem Ipsum?</div>
-            <div class="faq-answer">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
+    <div class="faq-wrapper container">
+      <div class="">
+        <div class="pe-0 pe-lg-5">
+          <p
+            class="subtitle"
+            {{ with .subtitle_color }}style="color:{{ . }}"{{ end }}>
+            {{ .subtitle | markdownify }}
+          </p>
+          <h2
+            class="title text-xl mb-3"
+            {{ with .title_color }}style="color:{{ . }}"{{ end }}>
+            {{ .title | markdownify }}
+          </h2>
+          <div
+            class="mb-5"
+            {{ with .description_color }}style="color:{{ . }}"{{ end }}>
+            {{ .description | markdownify }}
           </div>
 
-          <div class="faq-item" data-index="1">
-            <div class="faq-question">Why do we use it?</div>
-            <div class="faq-answer">
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
-            </div>
-          </div>
+          {{ with .button }}
+            {{ if .enable }}
+              <a
+                href="{{ .link | relLangURL }}"
+                class="btn btn-primary m-1">
+                {{ .label }}
+                {{ with .icon }}
+                  <i class="arrow-right {{ . }}"></i>
+                {{ end }}
+              </a>
+            {{ end }}
+          {{ end }}
 
-          <div class="faq-item" data-index="2">
-            <div class="faq-question">Where does it come from?</div>
-            <div class="faq-answer">
-              Contrary to popular belief, Lorem Ipsum is not simply random
-              text. It has roots in a piece of classical Latin literature.
-            </div>
-          </div>
+          {{ with .video_button }}
+            {{ if .enable }}
+              <button
+                class="btn btn-outline btn-play m-1 shadow-none"
+                type="button"
+                data-bs-toggle="modal"
+                data-src="{{ .video_url | safeURL }}"
+                data-bs-target="#videoModal"
+                aria-label="watch video">
+                <i class="fas fa-play"></i>
+                {{ .label }}
+              </button>
+            {{ end }}
+          {{ end }}
         </div>
       </div>
+
+      <div class="faq-right-content">
+        <div class="faq-container">
+          {{ range .faq_list }}
+          <div class="faq-item" data-index="0">
+            <div class="faq-question">
+              <svg width="25" height="25" version="0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" xml:space="preserve"><path style="fill:none;stroke:#fff;stroke-width:2;stroke-miterlimit:10" d="m12.25 5 11 11-11 11"/></svg>
+              {{ .title | markdownify }}
+              </div>
+            <div class="faq-answer content">
+              {{ .content | markdownify }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      
     </div>
   </section>
 </div>
+{{ end }}
+{{ end }}
+
+
+  <!-- <section class="wave-block overflow-hidden rounded-lg"> -->
+    {{/*  <section style="padding-top: 250px;">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          {{ with site.GetPage .Params.capten_feature.section }}
+            {{ with .Params }}
+            <div class="col-lg-6 pb-5 pb-lg-0 lg:sticky lg:top-[350px]">
+                <div class="pe-0 pe-lg-5">
+                  <p
+                    class="subtitle"
+                    {{ with .subtitle_color }}style="color:{{ . }}"{{ end }}>
+                    {{ .subtitle | markdownify }}
+                  </p>
+                  <h2
+                    class="title text-xl mb-3"
+                    {{ with .title_color }}style="color:{{ . }}"{{ end }}>
+                    {{ .title | markdownify }}
+                  </h2>
+                  <div
+                    class="mb-5"
+                    {{ with .description_color }}style="color:{{ . }}"{{ end }}>
+                    {{ .description | markdownify }}
+                  </div>
+  
+                  {{ with .button }}
+                    {{ if .enable }}
+                      <a
+                        href="{{ .link | relLangURL }}"
+                        class="btn btn-primary m-1">
+                        {{ .label }}
+                        {{ with .icon }}
+                          <i class="arrow-right {{ . }}"></i>
+                        {{ end }}
+                      </a>
+                    {{ end }}
+                  {{ end }}
+  
+                  {{ with .video_button }}
+                    {{ if .enable }}
+                      <button
+                        class="btn btn-outline btn-play m-1 shadow-none"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-src="{{ .video_url | safeURL }}"
+                        data-bs-target="#videoModal"
+                        aria-label="watch video">
+                        <i class="fas fa-play"></i>
+                        {{ .label }}
+                      </button>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+              <!-- <div class="col-lg-5 mt-5 mt-lg-0"> -->
+              <!-- <div class="accordion" id="faq">
+                  {{ range $i, $e := .faq_list }}
+                <div class="accordion-item border-0">
+                  <h4
+                    class="accordion-header mb-0"
+                    id="heading-{{ sha1 .title | urlize }}_">
+                    <button
+                      class="accordion-button pe-0 shadow-none h6 font-secondary mb-0 {{ if ne $i 0 }}
+                        collapsed
+                      {{ end }}"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#id-{{ sha1 .title | urlize }}_"
+                      aria-expanded="{{ if eq $i 0 }}
+                        true
+                      {{ else }}
+                        false
+                      {{ end }}"
+                      aria-controls="id-{{ sha1 .title | urlize }}_">
+                      {{ .title | markdownify }}
+                    </button>
+                  </h4>
+                  <div
+                    id="id-{{ sha1 .title | urlize }}_"
+                    class="accordion-collapse collapse {{ if eq $i 0 }}
+                      show
+                    {{ end }}"
+                    aria-labelledby="heading-{{ sha1 .title | urlize }}_"
+                    data-bs-parent="#faq">
+                    <div class="accordion-body pt-0 content">
+                      {{ .content | markdownify }}
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+                </div> -->
+              <!-- </div> -->
+            {{ end }}
+          {{ end }}
+  
+          {{ with site.GetPage .Params.capten_feature.section }}
+          {{ with .Params }}
+          <div class="col-lg-5 mt-5 mt-lg-0">
+            <!-- Include FAQ Component -->
+            {{ partial "components/faq.html" . }}
+          </div>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </section>  */}}
+  

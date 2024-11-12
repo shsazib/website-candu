@@ -951,8 +951,8 @@ faqItems.forEach((item, index) => {
 
   ScrollTrigger.create({
     trigger: ".trigger-section",
-    start: `${start * 100}% top`,
-    end: `${end * 100}% top`,
+    start: `${start * 100 - 15}% top`,
+    end: `${end * 100 -15}% top`,
     onToggle: (self) => {
       if (self.isActive) {
         if (currentActive && currentActive !== item) {

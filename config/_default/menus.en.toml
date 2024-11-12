@@ -99,7 +99,7 @@ weight = 2
 
 [[main]]
 name = "Platform"
-url = "/capten"
+url = "/platform"
 weight = 1
 
 
@@ -112,7 +112,7 @@ weight = 2
 # hasChildren = true
 # name = "Platform"
 # url = "platform/"
-# weight = 2
+# weight = 1
 # [main.params]
 # isMenuLarge = true
 
