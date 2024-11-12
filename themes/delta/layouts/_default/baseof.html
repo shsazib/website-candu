@@ -1,0 +1,59 @@
+<!--
+
+PROJECT: delta
+VERSION: 1.0.0
+AUTHOR: Gethugothemes
+AUTHOR WEBSITE: https://gethugothemes.com
+
+-->
+
+<!doctype html>
+<html
+  itemscope
+  lang="{{ site.LanguageCode | default `en-US` }}"
+  itemtype="http://schema.org/WebPage">
+  <head>
+    <!-- head (don't cache it) -->
+    {{ partial "essentials/head.html" . }}
+
+
+    <!-- style (always cache it) -->
+    {{ partialCached "essentials/style.html" . }}
+  </head>
+
+  <body>
+    <!-- cache partial only in production -->
+    {{ if hugo.IsProduction }}
+      {{ partialCached "preloader.html" . }}
+      {{ partialCached "gtm-noscript.html" . }}
+    {{ else }}
+      {{ partial "preloader.html" . }}
+    {{ end }}
+
+
+    <main>{{ block "main" . }}{{ end }}</main>
+    <main class="pt-0">{{ block "main-sm" . }}{{ end }}</main>
+
+    <!-- cache partial only in production -->
+    {{ if hugo.IsProduction }}
+      {{ partialCached "essentials/script.html" . }}
+      {{ if or (eq .Section "events") (eq .Section "campaign") }}
+        {{ partial "essentials/footer-events.html" . }}
+      {{ else }}
+        {{ partialCached "essentials/footer.html" . }}
+      {{ end }}
+    {{ else }}
+      {{ partial "essentials/script.html" . }}
+      {{ if or (eq .Section "events") (eq .Section "campaign") }}
+        {{ partial "essentials/footer-events.html" . }}
+      {{ else }}
+        {{ partial "essentials/footer.html" . }}
+      {{ end }}
+    {{ end }}
+
+    <!-- Tawk.to -->
+    {{ if not .Params.hide_tawk }}
+      {{ partial "components/tawk.html" }}
+    {{ end }}
+  </body>
+</html>

@@ -1,0 +1,111 @@
+// search-modal
+.search-modal-dialog {
+  margin-top: 150px;
+  max-width: 600px;
+  @include desktop {
+    margin-top: 80px;
+  }
+}
+.modal-header {
+  background-color: $dark-50;
+}
+.search-modal {
+  .search-form-control,
+  .input-group span {
+    background-color: $dark-50 !important;
+    color: $text-color !important;
+  }
+
+  .input-group-text,
+  .search-form-control {
+    border: 2px solid $border-color;
+  }
+  .search-form-control {
+    padding-right: 15px;
+  }
+  .modal-body {
+    max-height: calc(100vh - 350px);
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: $dark-300;
+    box-shadow: inset 0px 2px 18px $dark-50;
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    border-bottom-right-radius: calc(0.3rem - 1px);
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      &-track {
+        background: $white;
+      }
+      &-thumb {
+        background: #c7c7c7;
+      }
+    }
+  }
+}
+.search-result-item {
+  &:first-child {
+    .section:not(:empty) {
+      margin-top: -15px;
+    }
+  }
+  &:not(:last-child) a {
+    margin-bottom: -1px;
+  }
+  > .section {
+    padding: 0 0.75rem;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    &:empty {
+      display: none;
+    }
+  }
+  .block {
+    display: block;
+    padding: 0.65rem 1rem;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    background-color: $dark-50;
+    transition: 0.1s;
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      mark:not(:first-child) {
+        background-color: transparent;
+      }
+      mark {
+        color: $text-color;
+        background-color: $dark-300;
+        padding: 5px;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+    &:focus,
+    &:hover {
+      background-color: $dark-300;
+      * {
+        color: $text-color !important;
+      }
+      mark {
+        color: $text-color !important;
+      }
+    }
+  }
+}
+#search-result-body {
+  &:empty {
+    &::after {
+      content: "No result to show!";
+      display: block;
+      text-align: center;
+      margin: 1.5rem 0;
+      opacity: 0.5;
+    }
+  }
+}

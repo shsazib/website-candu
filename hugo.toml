@@ -1,0 +1,210 @@
+######################## default configuration ####################
+# The base URL of your site (required). This will be prepended to all relative URLs.
+baseURL = "https://capten.ai/"
+# Title of your website (required).
+title = "Capten"
+# Your theme name
+theme = "delta"
+# Default time zone for time stamps; use any valid tz database name: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+timeZone = "America/New_York"
+# post pagination
+pagination.pagerSize = 6 # see https://gohugo.io/extras/pagination/
+# post excerpt
+summaryLength = 10 # see https://gohugo.io/content-management/excerpts/
+# disable language
+disableLanguages = [
+  "fr",
+] # example: ["fr"] for disable french language. see https://gohugo.io/content-management/multilingual/
+hasCJKLanguage = false #  If hasCJKLanguage true, auto-detect Chinese/Japanese/Korean Languages in the content. see: https://gohugo.io/getting-started/configuration/#hascjklanguage
+enableGitInfo = true # show last update time of post
+timeout = "120s"
+
+########################### Services #############################
+[services]
+[services.googleAnalytics]
+ID = 'G-MEASUREMENT_ID' # see https://gohugo.io/templates/internal/#configure-google-analytics
+
+[services.disqus]
+shortname = 'themefisher-template' # we use disqus to show comments in blog posts . To install disqus please follow this tutorial https://portfolio.peter-baumgartner.net/2017/09/10/how-to-install-disqus-on-hugo/
+
+
+############################# Modules ############################
+[module]
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
+[[module.mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
+
+
+############################# Build ##############################
+[build]
+noJSConfigInAssets = false
+useResourceCacheWhen = 'fallback'
+[build.buildStats]
+enable = true
+[[build.cachebusters]]
+source = 'assets/watching/hugo_stats\.json'
+target = 'style\.css'
+[[build.cachebusters]]
+source = 'assets/.*\.(js|ts|jsx|tsx)'
+target = 'js'
+[[build.cachebusters]]
+source = 'assets/.*\.(css|scss|sass)'
+target = 'css'
+[[build.cachebusters]]
+source = 'data/.*\.(.*)$'
+target = 'css'
+[[build.cachebusters]]
+source = 'assets/.*\.(.*)$'
+target = '$1'
+
+
+############################# Outputs ############################
+[outputs]
+home = ["HTML", "RSS", "WebAppManifest", "SearchIndex"]
+
+
+############################# Imaging ############################
+[imaging]
+# See https://github.com/disintegration/imaging
+# Default JPEG or WebP quality setting. Default is 75.
+quality = 80
+resampleFilter = "Lanczos"
+
+
+############################ Caches ##############################
+[caches]
+[caches.images]
+dir = ":resourceDir/_gen"
+maxAge = "720h"
+
+[caches.assets]
+dir = ":resourceDir/_gen"
+maxAge = "720h"
+
+
+############################ Markup ##############################
+[markup]
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = 'monokai' # see https://xyproto.github.io/splash/docs/all.html
+
+[markup.tableOfContents]
+startLevel = 1
+endLevel = 6
+ordered = false
+
+
+########################### Media types ###########################
+[mediaTypes]
+[mediaTypes."application/manifest+json"]
+suffixes = ["webmanifest"]
+
+
+########################### Output Format ##########################
+[outputFormats]
+[outputFormats.WebAppManifest]
+mediaType = "application/manifest+json"
+rel = "manifest"
+
+[outputFormats.SearchIndex]
+mediaType = "application/json"
+baseName = "searchindex"
+isPlainText = true
+notAlternative = true
+
+
+########################### Taxonomies ##########################
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+########################### Plugins Files ##########################
+[[params.plugins.css]]
+link = "plugins/font-awesome/fontawesome.min.css"
+[[params.plugins.css]]
+link = "plugins/font-awesome/brands.css"
+[[params.plugins.css]]
+link = "plugins/font-awesome/solid.css"
+[[params.plugins.css]]
+link = "plugins/font-awesome/regular.css"
+[[params.plugins.css]]
+link = "plugins/swiper/swiper-bundle.min.css"
+[[params.plugins.css]]
+link = "plugins/tab/tab.css"
+[[params.plugins.css]]
+link = "plugins/search/auto-complete.css"
+
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/swiper/swiper-bundle.min.js"
+[[params.plugins.js]]
+link = "plugins/tab/tab.js"
+[[params.plugins.js]]
+link = "plugins/scrollmenu/scrollmenu.min.js"
+[[params.plugins.js]]
+link = "plugins/infinite-scroll/infinite-scroll.pkgd.js"
+[[params.plugins.js]]
+link = "plugins/search/auto-complete.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+[[params.plugins.js]]
+link = "plugins/search/lunr.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/anime/anime.min.js"
+[[params.plugins.js]]
+link = "plugins/anime/scrollreveal.min.js"
+[[params.plugins.js]]
+link = "plugins/search/search-page.js"
+[[params.plugins.js]]
+link = "https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.3/dist/lottie-player.js"
+
+########################### Variables ##########################
+[params.variables]
+banner_primary = "#091922" # prviously original = 121826
+banner_secondary = "#FF5100"
+
+color_quaternary = "#6E9240"
+color_tertiary = "#ED6F78"
+dark = "#091922" # previous original = 050038
+black = "#000"
+
+font_primary = "Catamaran:wght@700;900"
+font_primary_type = "sans-serif"
+font_scale = "1.2"
+font_secondary = "Rubik:wght@400;500;600"
+font_secondary_type = "sans-serif"
+font_size = "16px"
+icon_font = "Font Awesome 5 Free"
+
+light = "#fdfdfd"
+text_dark = "#222222"
+text_light = "#959595"
+white = "#fff"
+secblack = "#121826"
+
+# Dark Mode Colors
+color_primary = "#F99A5E"
+
+dark_50 = "#2E2C2B" 
+dark_300 = "#2E2C2B"
+dark_900 = "#433F3D"
+
+text_color = "#FEF2EB"
+text_color_dark = "#9C9692"
+border_color = "#433F3D"
+border_color_light = "#A4B0CA"
+body_color = "#202020"

@@ -1,0 +1,164 @@
+################################ default parameters ################################
+# favicon module: https://github.com/gethugothemes/hugo-modules/tree/master/images#favicon-implementation
+favicon = "images/favicon/capten-logo_line.png"
+image = "images/logo.png"
+# logo module: https://github.com/gethugothemes/hugo-modules/tree/master/images#logo-implementation
+logo = "images/logos/Capten_logo_full.svg"  #This is the main logo displayed on the header bar. Full Logo on Homepage. 
+logo_light = "images/logos/Capten Outline Logo Icon.svg" #This is displayed in the footer. Icon of Logo on Homepage. 
+logo_dark = "images/logos/logo-light.svg"
+footer_logo_dark = false
+# if logo_webp set false, will not generate WEBP version of logo | default is true
+logo_webp = false
+# logo text will only show when logo is missing.
+logo_text = "Capten.AI"
+# use `px` or `x` with logo_width, example: "100px".
+# Note: logo_width is not work with .svg file
+logo_width = "130px"
+# Main Sections
+mainSections = ["blog"]
+# Contact Form Action
+career_form_action = "#!"
+contact_form_action = "#!"
+# google tag manager, see https://developers.google.com/tag-manager/
+google_tag_manager = "GTM-PVRN5BQ" # example: G-XXXXXXXXXX
+google_adsense = ""                # example: ca-pub-xxxxxxxxxxxxxxxx
+# custom script on header, example: custom_script= "<script>console.log(\"Hello World\")</script>"
+custom_script = ""
+# full website search
+fullSiteSearch = true
+
+
+mobile = "+211234565523"
+email = "info@email.com"
+description = "Next-Gen Ai based solution to democratize cloud native, software supply chain security, quality engineering, Kubernetes and security using Kernel technology like eBPF and Machine Learning. Empower Engineers to easily adopt concepts like cloud-native, webassembly, chaos engineering, detection engineering, security chaos engineering, gitops, self service, platform engineering, etc. Imagination is your limit!"
+
+
+# seo meta data for OpenGraph / Twitter Card / OGraph / Metadata 
+# seo module: https://github.com/gethugothemes/hugo-modules/tree/master/seo-tools/basic-seo
+[metadata]
+keywords = [
+  "Intelops",
+  "Capten",
+  "Cloud-Native",
+  "Ai",
+  "DevOps",
+  "SRE",
+  "Kubernetes",
+  "Talent",
+  "Democratize",
+  "Next-Gen",
+]
+description = "Democratizing Technology. Making Imagination a Reality."
+author = "Capten.AI"
+image = "images/logos/metadata-images/Capten_logo_full.jpg" # this image will be used as fallback if a page has no image of its own. This is the metadata image. OGraph image. OpenGraph image. social media image.
+
+
+# Footer Configuration
+[footer]
+footer_light = false
+# bg_color = "#1e384c"
+# bg_image = "images/bg-banner-page.jpg"
+bg_image_overlay_color = "rgba(0,0,0,.65)"
+
+
+# call to action
+[call_to_action]
+enable = true
+title = "Looking for Cloud-Native Implementation?"
+image = "images/footer/homepage/contact-image.svg"
+subtitle = "Finding the right talent is pain. More so, keeping up with concepts, culture, technology and tools. We all have been there. Our AI-based automated solutions helps eliminate these issues, making your teams lives easy."
+button_label = "Contact Us"
+button_link = "contact/"
+
+
+# navigation buttons
+[navigation_button]
+enable = false       #enable or disable login button on Header menu bar.
+icon = "far fa-user"
+label = "Log In"
+link = "#!"
+
+[navigation_button_two]
+enable = false        #enable or disable sign up button on Header menu bar.
+label = "Sign Up Now"
+link = "#!"
+
+
+# cookies module: https://github.com/gethugothemes/hugo-modules/tree/master/components/cookie-consent
+[cookies]
+button = "I Accept"
+content = "This site uses cookies. By continuing to use this website, you agree to their use."
+enable = false
+expire_days = 2
+
+
+# preloader module: https://github.com/gethugothemes/hugo-modules/tree/master/components/preloader
+[preloader]
+enable = false
+preloader = "images/loader.png"
+
+# site verifications
+# https://github.com/gethugothemes/hugo-modules/tree/master/seo-tools/site-verifications
+[site_verification]
+google = ""   # Your verification code
+bing = ""     # Your verification code
+baidu = ""    # Your verification code
+facebook = "" # Your verification code
+mastodon = "" # Your verification code
+
+
+################################ clickup forms ################################
+[clickup_form]
+enable = true
+
+[newsletter]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-7520/VCGTBDZHNQ41SR6Y97"
+button_label = "Subscribe for Newsletter"
+
+[blog_popup]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-7510/JF9T5CQC8LRFXTUBND"
+
+[learning_center_popup]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-7510/JF9T5CQC8LRFXTUBND"
+
+[opensource_security_reporting]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-12190/UD4AJPCTSDU2IS70Q0"
+
+[product_demo_request_form]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-12812/WUKEDC5C93Y61XRFTE"
+
+[upcoming_events_popup_form]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-14212/A5I57OFKE4MMRLAXUO"
+
+[ondemand_events_popup_form]
+enable = true
+clickup_iframe_url = "https://forms.clickup.com/9006002197/f/8cctc0n-14192/3Z4SGR3MGQ478WZBOH"
+
+
+################################ Socials ################################
+# [[social]]
+# icon = "fab fa-facebook"
+# link = "#!"
+# title = "facebook"
+# [[social]]
+# icon = "fab fa-twitter"
+# link = "#!"
+# title = "twitter"
+# [[social]]
+# icon = "fab fa-instagram"
+# link = "#!"
+# title = "instagram"
+[[social]]
+icon = "fab fa-github"
+link = "https://github.com/intelops/"
+title = "github"
+[[social]]
+icon = "fab fa-linkedin"
+link = "https://www.linkedin.com/company/intelopsai/"
+title = "linkedin"

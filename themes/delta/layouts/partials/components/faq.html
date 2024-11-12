@@ -1,0 +1,51 @@
+<!-- {{ range .faq_list }}
+  <div class="faq-container content">
+    <div class="accordion">
+      <div class="accordion-item" style="border: none; ">
+        <button class="faq-accordion-button">
+          <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#A4B0CA'><path fill-rule='evenodd' d='M1.646 4.646a.5.5.0 01.708.0L8 10.293l5.646-5.647a.5.5.0 01.708.708l-6 6a.5.5.0 01-.708.0l-6-6a.5.5.0 010-.708z'/></svg>
+          <h5 class="accordion-header">
+            {{ .title | markdownify }}
+          </h5>
+        </button>
+        {{ .content | markdownify }}
+      </div>
+    </div>
+  </div>
+{{ end }} -->
+
+
+
+<div class="trigger-section">
+  <section class="faq-section">
+    <div class="faq-wrapper">
+      <div class="right-content">
+        <div class="faq-container">
+          <div class="faq-item" data-index="0">
+            <div class="faq-question">What is Lorem Ipsum?</div>
+            <div class="faq-answer">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+
+          <div class="faq-item" data-index="1">
+            <div class="faq-question">Why do we use it?</div>
+            <div class="faq-answer">
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking at its layout.
+            </div>
+          </div>
+
+          <div class="faq-item" data-index="2">
+            <div class="faq-question">Where does it come from?</div>
+            <div class="faq-answer">
+              Contrary to popular belief, Lorem Ipsum is not simply random
+              text. It has roots in a piece of classical Latin literature.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

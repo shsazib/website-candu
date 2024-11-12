@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+{{ partial "components/page-header.html" . }}
+
+{{with .Params.team_members}}
+<section class="section pb-0">
+  <div class="container container-delta">
+    <div class="row gy-4">
+      {{range .lists}}
+      <div class="col-lg-3 col-md-4 col-sm-6 text-center has-avatar-shadow">
+        {{with .image}}
+        <div class="avatar rounded-circle mb-3">
+          {{ partial "image.html" (dict "Src" . "Size" "110x" "Webp" false ) }}
+        </div>
+        {{end}}
+        <h3 class="h5 mb-0" {{with .name_color}}style="color:{{.}} !important"{{end}}>{{.name | markdownify}}</h3>
+        <p class="mb-0" {{with .designation_color}}style="color:{{.}} !important"{{end}}>{{.designation | markdownify}}</p>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}
+
+{{ partial "call-to-action-2.html" . }}
+
+{{ end }}
